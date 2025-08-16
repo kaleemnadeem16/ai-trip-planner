@@ -70,6 +70,10 @@ output/*.txt
 output/*.json
 !output/example_*
 
+# Project specific - exclude incomplete/internal folders
+docs/
+rules/
+
 # Temporary files
 *.tmp
 *.temp
