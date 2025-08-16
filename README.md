@@ -1,9 +1,5 @@
 # 🌍 Agentic Trip Planner
 
-## Overview
-
-# 🌍 Agentic Trip Planner
-
 *An intelligent multi-agent system for personalized travel planning using AI coordination and real-time data integration.*
 
 ## Overview
@@ -56,14 +52,21 @@ This project showcases **multi-agent coordination**, **tool usage patterns**, **
 4. **State Management** → Blackboard maintains shared memory across agents
 5. **Formatted Output** → Human-readable itinerary with booking guidance
 
-## 🌟 Key Features
+## 🌟 Current Features
 
-### Currently Working
+### ✅ Working Components
 - **🎯 Multi-Agent Orchestration**: Central planning with dynamic agent selection
 - **📝 Natural Language Processing**: Conversational trip planning interface
 - **🌐 Real-Time Weather**: Live forecasts and travel recommendations
 - **🗺️ Geographic Intelligence**: Location resolution and POI discovery
 - **📋 Formatted Itineraries**: Professional travel plans with booking links
+
+### 🔄 In Development (Mock Data Currently)
+- **Flight Agent**: Provides realistic flight estimates and booking guidance (uses estimated prices)
+- **Hotel Agent**: Hotel recommendations with realistic pricing (uses estimated rates)
+- **Transport Agent**: Local transportation planning (basic guidance)
+- **Budget Agent**: Cost tracking and budget allocation (estimates only)
+- **Interest Mapping**: Maps user interests to activity categories (rule-based)
 
 ### Intelligent Fallbacks
 - **Mock Data Systems**: Realistic estimates when APIs are unavailable
@@ -75,7 +78,7 @@ This project showcases **multi-agent coordination**, **tool usage patterns**, **
 ```bash
 # Clone and setup
 git clone https://github.com/kaleemnadeem16/ai-trip-planner.git
-cd agentic-trip-planner
+cd ai-trip-planner
 pip install -r requirements.txt
 
 # Configure API key
@@ -87,133 +90,6 @@ python main.py --interactive
 # Command line planning
 python main.py --instruction "Plan a 5-day trip to Tokyo from London, interested in temples and technology"
 ```
-
-## 📊 Example Agent Coordination
-
-```
-🤖 Processing: "Plan a trip to Tokyo for 5 days"
-
-Central Planning Agent Decision Flow:
-├── Iteration 1: Call InterestMappingAgent (map user interests)
-├── Iteration 2: Call FlightAgent (establish travel logistics)  
-├── Iteration 3: Call HotelAgent (accommodation near planned activities)
-├── Iteration 4: Call ActivitiesAgent (discover POIs based on interests)
-├── Iteration 5: Call WeatherAgent (forecast and packing advice)
-├── Iteration 6: Call DetailedScheduler (day-by-day itinerary)
-└── Complete: Comprehensive 5-day Tokyo itinerary generated
-```
-
-## 🏗️ Architecture for Autonomous Systems
-
-This project demonstrates patterns directly applicable to autonomous IT operations, business process automation, and other multi-agent scenarios:
-
-- **Supervisor-Worker Models**: Central coordinator delegates to specialists
-- **Event-Driven Architecture**: Ready for message queue integration
-- **State Management**: Blackboard pattern for complex multi-step workflows
-- **Tool Integration**: Framework for calling external APIs and services
-- **Self-Healing Workflows**: Error recovery and alternative planning paths
-
-## 📁 Project Structure
-
-```
-src/
-├── agents/           # Specialized AI agents with domain expertise
-├── orchestrator/     # Central coordination and state management
-├── tools/           # External API integrations with retry logic
-├── utils/           # LLM clients and HTTP utilities
-├── cli/             # Command-line and interactive interfaces
-└── config/          # Environment and settings management
-
-test/                # Comprehensive test suite
-output/              # Generated travel itineraries
-```
-
-## 🤝 Contributing
-
-This project serves as a practical demonstration of agentic AI patterns. Contributions welcome for:
-- Additional agent implementations
-- New API integrations
-- Enhanced coordination strategies
-- Testing and documentation improvements
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details.
-
----
-
-**🎯 Demonstrating the future of AI agent coordination through practical travel planning.**
-
-## ✨ Current Features
-
-- **🤖 LLM-Powered Central Planning**: Central agent uses OpenAI to intelligently coordinate specialized agents
-- **📝 Natural Language Interface**: Describe your trip in plain English - interactive and command-line modes
-- **� Specialized Planning Agents**: Flight search guidance, hotel recommendations, activity discovery, weather forecasting
-- **🌐 Real-Time Weather Data**: Live weather forecasts using OpenMeteo API
-- **🛡️ Intelligent Fallbacks**: Provides useful guidance even with limited API access
-- **📋 Formatted Itineraries**: Human-readable trip plans with booking guidance and links
-
-## 🚧 Current Status & Limitations
-
-### ✅ Working Components
-- **Core System**: Orchestrator, blackboard memory, schema validation
-- **Natural Language Processing**: Instruction parsing and trip request generation
-- **Agent Coordination**: Central planning agent with LLM decision-making
-- **Weather Integration**: Real-time forecasts via OpenMeteo API
-- **Activities Discovery**: Basic POI recommendations (with OpenTripMap when API available)
-- **Output Formatting**: Human-readable itinerary generation
-
-### 🔄 In Development (Mock Data Currently)
-- **Flight Agent**: Provides realistic flight estimates and booking guidance (uses estimated prices)
-- **Hotel Agent**: Hotel recommendations with realistic pricing (uses estimated rates)
-- **Transport Agent**: Local transportation planning (basic guidance)
-- **Budget Agent**: Cost tracking and budget allocation (estimates only)
-- **Interest Mapping**: Maps user interests to activity categories (rule-based)
-
-### ⏳ Planned Enhancements
-- Real flight API integration (Amadeus, Skyscanner)
-- Live hotel booking API integration
-- Enhanced routing with Google Maps/OSRM
-- Currency conversion and real-time pricing
-- Calendar integration and constraint handling
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.10+
-- OpenAI API key (required for agent coordination)
-- Optional: OpenTripMap API key for enhanced POI data
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/kaleemnadeem16/ai-trip-planner.git
-   cd agentic-trip-planner
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Configure environment**
-   ```bash
-   # Copy environment template
-   cp .env.example .env
-   
-   # Edit .env and add your OpenAI API key:
-   # OPENAI_API_KEY=your_openai_api_key_here
-   ```
-
-4. **Run a sample trip**
-   ```bash
-   # Interactive mode
-   python main.py --interactive
-   
-   # Command line mode
-   python main.py --instruction "Plan a 5-day trip to Tokyo from London, interested in temples and technology"
-   ```
 
 ## 🔑 API Configuration
 
@@ -231,22 +107,20 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 See `.env.example` for complete configuration options.
 
-## 🏗️ Architecture
+## 📊 Example Agent Coordination
 
-### Multi-Agent System
-- **CentralPlanningAgent**: LLM-powered coordinator that decides which agents to call
-- **InstructionAgent**: Parses natural language trip requests
-- **ActivitiesAgent**: Discovers attractions and experiences based on interests
-- **ItineraryFormatterAgent**: Creates human-readable trip plans
-- **FlightAgent**: Flight search guidance (currently mock data with realistic estimates)
-- **HotelAgent**: Hotel recommendations (currently mock data with realistic pricing)
-- **InterestMappingAgent**: Maps user interests to activity categories
+```
+🤖 Processing: "Plan a trip to Tokyo for 5 days"
 
-### Core Components
-- **Orchestrator**: Central coordination system with blackboard memory
-- **HTTP Clients**: Standardized API integration with timeouts and retries
-- **Schema Validation**: Pydantic models for type safety and data validation
-- **CLI Interface**: Command-line and interactive modes
+Central Planning Agent Decision Flow:
+├── Iteration 1: Call InterestMappingAgent (map user interests)
+├── Iteration 2: Call FlightAgent (establish travel logistics)  
+├── Iteration 3: Call HotelAgent (accommodation near planned activities)
+├── Iteration 4: Call ActivitiesAgent (discover POIs based on interests)
+├── Iteration 5: Call WeatherAgent (forecast and packing advice)
+├── Iteration 6: Call DetailedScheduler (day-by-day itinerary)
+└── Complete: Comprehensive 5-day Tokyo itinerary generated
+```
 
 ## 📊 Example Output
 
@@ -286,6 +160,30 @@ Day 2: Historic landmarks and museums
 - Hotels: Booking.com, Hotels.com, Agoda
 ```
 
+## 🏗️ Architecture for Autonomous Systems
+
+This project demonstrates patterns directly applicable to autonomous IT operations, business process automation, and other multi-agent scenarios:
+
+- **Supervisor-Worker Models**: Central coordinator delegates to specialists
+- **Event-Driven Architecture**: Ready for message queue integration
+- **State Management**: Blackboard pattern for complex multi-step workflows
+- **Tool Integration**: Framework for calling external APIs and services
+- **Self-Healing Workflows**: Error recovery and alternative planning paths
+
+## 📁 Project Structure
+
+```
+src/
+├── agents/           # Specialized AI agents with domain expertise
+├── orchestrator/     # Central coordination and state management
+├── tools/           # External API integrations with retry logic
+├── utils/           # LLM clients and HTTP utilities
+├── cli/             # Command-line and interactive interfaces
+└── config/          # Environment and settings management
+
+test/                # Comprehensive test suite
+```
+
 ## 🧪 Testing
 
 Run tests for implemented components:
@@ -298,21 +196,6 @@ python -m pytest test/ -v
 python -m pytest test/test_config.py -v
 python -m pytest test/test_schemas.py -v
 python -m pytest test/test_http_client.py -v
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── agents/           # AI agents (mix of working and mock implementations)
-├── orchestrator/     # Central coordination (fully working)
-├── tools/           # API integrations (working: weather, geocoding)
-├── utils/           # Utility functions (working)
-├── cli/             # Command-line interface (working)
-└── config/          # Configuration management (working)
-
-test/                # Test suite for implemented components
-output/              # Generated itineraries
 ```
 
 ## 🛠️ Development
@@ -333,6 +216,12 @@ output/              # Generated itineraries
 
 ## 🤝 Contributing
 
+This project serves as a practical demonstration of agentic AI patterns. Contributions welcome for:
+- Additional agent implementations
+- New API integrations
+- Enhanced coordination strategies
+- Testing and documentation improvements
+
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Add tests for new functionality
@@ -343,7 +232,7 @@ output/              # Generated itineraries
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - See [LICENSE](LICENSE) for details.
 
 ## 🙏 Acknowledgments
 
@@ -354,9 +243,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/kaleemnadeem16/ai-trip-planner.git/issues)
-- **Examples**: Check `output/` for sample itineraries
+- **Issues**: [GitHub Issues](https://github.com/kaleemnadeem16/ai-trip-planner/issues)
 
 ---
 
-**Built with ❤️ for travelers who want intelligent, personalized trip planning.**
+**🎯 Demonstrating the future of AI agent coordination through practical travel planning.**
